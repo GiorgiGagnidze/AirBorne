@@ -1,0 +1,26 @@
+﻿using UnityEngine;
+
+public class MoveScript : MonoBehaviour {
+
+	public Vector2 speed = new Vector2(10, 10);
+
+	/// <summary>
+	/// Moving direction
+	/// </summary>
+	public Vector2 direction = new Vector2(0, -1);
+	
+	private Vector2 movement;
+	
+	void Update()
+	{
+		// 2 - Movement
+		movement = new Vector2(
+		speed.x * direction.x,
+		speed.y * direction.y);
+	}
+	void FixedUpdate()
+	{
+		// 5 - Move the game object
+		GetComponent<Rigidbody2D>().velocity = movement;
+	}
+}
